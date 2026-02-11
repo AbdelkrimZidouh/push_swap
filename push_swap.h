@@ -20,4 +20,10 @@ typedef struct stack_node
     struct stack_node *prev ;
 } t_stack_node ;
 
+char	**ft_split(const char *s, char c) ;
+void init_stack_a(t_stack_node **a, char **argv) ;
+bool    stack_sorted(t_stack_node *stack) ;
+bool    stack_sorted(t_stack_node *stack) ;
+t_stack_node *find_last_node(t_stack_node *stack) ;
+void free_stack(t_stack_node **stack) ;
 #endif

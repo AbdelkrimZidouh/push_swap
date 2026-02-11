@@ -21,9 +21,9 @@ void sort_three(t_stack_node **a)
 
     biggest_node = max_node(*a) ;
     if (biggest_node == *a)
-        ra(*a) ;
+        ra(a) ;
     else if ((*a)->next == biggest_node)
-        rra(*a) ;
+        rra(a) ;
     if ((*a)->nbr > (*a)->next->nbr)
-        sa(*a) ;
+        sa(a) ;
 }
