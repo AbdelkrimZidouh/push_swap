@@ -1,7 +1,7 @@
 NAME = push_swap
 
-SRC = push_swap.c stack_init.c stack_utils.c ft_split.c
-
+SRC = push_swap.c stack_init.c stack_utils.c ft_split.c utils.c 
+ 
 SOBJ = $(SRC:%.c=%.o)
 
 CC = cc

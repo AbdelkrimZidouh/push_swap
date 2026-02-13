@@ -41,11 +41,11 @@ static void	free_argv(char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
-	t_stack_node	*b;
+	// t_stack_node	*b;
 	bool			to_free;
 
 	a = NULL;
-	b = NULL;
+	// b = NULL;
 	to_free = false;
 	if (argc == 1)
 		return (1);
@@ -61,15 +61,15 @@ int	main(int argc, char **argv)
 		}
 	}
 	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
-	}
+	// if (!stack_sorted(a))
+	// {
+	// 	if (stack_len(a) == 2)
+	// 		sa(&a, false);
+	// 	else if (stack_len(a) == 3)
+	// 		sort_three(&a);
+	// 	else
+	// 		sort_stacks(&a, &b);
+	// }
 	if (to_free)
 		free_argv(argv);
 	print_stack(a);

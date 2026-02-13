@@ -26,4 +26,8 @@ bool    stack_sorted(t_stack_node *stack) ;
 bool    stack_sorted(t_stack_node *stack) ;
 t_stack_node *find_last_node(t_stack_node *stack) ;
 void free_stack(t_stack_node **stack) ;
+
+int	ft_isdigit(int c) ;
+long	ft_atol(const char *nptr) ;
+
 #endif

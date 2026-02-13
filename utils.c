@@ -17,7 +17,7 @@ int	ft_isdigit(int c)
 	return (c >= 48 && c <= 57);
 }
 
-static long	ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	size_t	i;
 	int		signe;

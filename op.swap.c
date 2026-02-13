@@ -13,38 +13,46 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void    ft_swap_sa(t_stack_node **stack_a, bool print)
+static void ft_swap(t_stack_node **stack)
 {
-    t_stack_node *first ;
-    t_stack_node *seconde ;
+    t_stack_node *first;
+    t_stack_node *second;
 
-    if(!stack_a || !(*stack_a) || !((*stack_a)->next))
-        return ;
-    
-    first = (*stack_a) ;
-    seconde = first->next ;
+    if (!stack || !*stack || !(*stack)->next)
+        return;
 
-    first->next = seconde->next ;
-    if (seconde->next)
-        seconde->next->prev = first; 
-    seconde->next = first ;
-    seconde->prev = NULL ;
-    first->prev = seconde ;
+    first = *stack;
+    second = first->next;
 
-    (*stack_a) = seconde ; 
-    if (print)
-        ft_putstr_fd("sa\n", 2) ;
+    first->next = second->next;
+    if (second->next)
+        second->next->prev = first;
+
+    second->next = first;
+    second->prev = NULL;
+    first->prev = second;
+
+    *stack = second;
 }
+
+void ft_swap_sa(t_stack_node **stack_a, bool print)
+{
+    ft_swap(stack_a);
+    if (print)
+        ft_putstr_fd("sa\n", 1);
+}
+
 void ft_swap_sb(t_stack_node **stack_b, bool print)
 {
-    ft_swap_sa(stack_b, false) ;
+    ft_swap(stack_b);
     if (print)
-        ft_putstr_fd("sb\n", 2) ;
+        ft_putstr_fd("sb\n", 1);
 }
 
-void ft_swap_ss(t_stack_node **stack_a, t_stack_node **stack_b)
+void ft_swap_ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-    ft_swap_sa(stack_a, false) ;
-    ft_swap_sb(stack_b, false) ;
-    ft_putstr_fd("ss\n", 2) ;
+    ft_swap(stack_a);
+    ft_swap(stack_b);
+    if (print)
+        ft_putstr_fd("ss\n", 1);
 }
