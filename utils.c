@@ -43,3 +43,16 @@ long	ft_atol(const char *nptr)
 	}
 	return (nbr * signe);
 }
+
+int stack_len(t_stack_node *stack)
+{
+    int count;
+
+    count = 0;
+    while (stack)
+    {
+        count++;
+        stack = stack->next;
+    }
+    return (count);
+}

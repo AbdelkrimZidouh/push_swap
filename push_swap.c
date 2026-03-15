@@ -26,53 +26,29 @@ static void	print_stack(t_stack_node *stack)
 	printf("---------------\n");
 }
 
-static void	free_argv(char **argv)
-{
-	int	i;
-
-	i = -1;
-	if (argv == NULL || *argv == NULL)
-		return ;
-	while (argv[++i])
-		free(argv[i]);
-	free(argv);
-}
 
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
-	// t_stack_node	*b;
-	bool			to_free;
+	t_stack_node	*b;
+	int len ;
 
 	a = NULL;
-	// b = NULL;
-	to_free = false;
+	b = NULL;
 	if (argc == 1)
 		return (1);
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		to_free = true;
-		if (argv[1] == NULL)
-		{
-			write(2, "Error\n", 6);
-			free_argv(argv);
-			return (1);
-		}
-	}
 	init_stack_a(&a, argv + 1);
-	// if (!stack_sorted(a))
-	// {
-	// 	if (stack_len(a) == 2)
-	// 		sa(&a, false);
-	// 	else if (stack_len(a) == 3)
-	// 		sort_three(&a);
-	// 	else
-	// 		sort_stacks(&a, &b);
-	// }
-	if (to_free)
-		free_argv(argv);
+	assign_index(a);
+	len = stack_len(a) ;
+	if (!stack_sorted(a))
+	{
+		if (len <= 5)
+			small_sort(&a, &b);
+		else
+			chunk_sort(&a, &b);
+	}
 	print_stack(a);
 	free_stack(&a);
 	return (0);
 }
+

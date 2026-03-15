@@ -46,6 +46,7 @@ static void	append_node(t_stack_node **a, int nbr)
 		free_error(a);
 	new_node->next = NULL;
 	new_node->nbr = nbr;
+	new_node->index = -1 ;
 	if (!(*a))
 	{
 		*a = new_node;
@@ -57,7 +58,7 @@ static void	append_node(t_stack_node **a, int nbr)
 	new_node->prev = last_node;
 }
 
-static bool	synthax_error(char *str)
+static bool	syntax_error(char *str)
 {
 	int	i;
 
@@ -88,22 +89,57 @@ static bool	duplicate_error(t_stack_node *stack, int n)
 	return (false);
 }
 
+static void	free_splited_args(char **argv)
+{
+	int	i;
+
+	i = -1;
+	if (argv == NULL)
+		return ;
+	while (argv[++i])
+		free(argv[i]);
+	free(argv);
+}
+
 void	init_stack_a(t_stack_node **a, char **argv)
 {
+	int     i;
+    int     j;
 	long	n;
-	int		i;
+    char    **args_splited;
 
-	i = 0;
-	while (argv[i])
-	{
-		if (synthax_error(argv[i]))
-			free_error(a);
-		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			free_error(a);
-		if (duplicate_error(*a, (int)n))
-			free_error(a);
-		append_node(a, (int)n);
-		i++;
-	}
+    i = 0;
+    while (argv[i])
+    {
+        args_splited = ft_split(argv[i], ' '); 
+        if (!args_splited || !args_splited[0]) 
+        {
+            free_splited_args(args_splited);
+            free_error(a) ;
+        }
+		j = 0; 
+        while (args_splited[j])
+        {
+            if (syntax_error(args_splited[j])) 
+            {
+                free_splited_args(args_splited);	
+				free_error(a) ;
+            }
+			n = ft_atol(args_splited[j]);
+			if (n > INT_MAX || n < INT_MIN)
+			{
+				free_splited_args(args_splited);
+				free_error(a);
+			}
+			if (duplicate_error(*a, (int)n))
+			{
+				free_splited_args(args_splited);
+				free_error(a);
+			}
+			append_node(a, (int)n);
+			j++;
+        }
+        free_splited_args(args_splited);
+        i++;
+    }
 }
