@@ -12,41 +12,38 @@
 
 #include "push_swap.h"
 
-static void ft_swap(t_stack_node **stack)
+static void	ft_swap(t_stack_node **stack)
 {
-    t_stack_node *first;
-    t_stack_node *second;
+	t_stack_node	*first;
+	t_stack_node	*second;
 
-    if (!stack || !*stack || !(*stack)->next)
-        return;
-
-    first = *stack;
-    second = first->next;
-
-    first->next = second->next;
-    second->next = first;
-
-    *stack = second;
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
 }
 
-void ft_swap_sa(t_stack_node **stack_a, bool print)
+void	ft_swap_sa(t_stack_node **stack_a, bool print)
 {
-    ft_swap(stack_a);
-    if (print)
-    write(1, "sa\n", 3);
+	ft_swap(stack_a);
+	if (print)
+		write(1, "sa\n", 3);
 }
 
-void ft_swap_sb(t_stack_node **stack_b, bool print)
+void	ft_swap_sb(t_stack_node **stack_b, bool print)
 {
-    ft_swap(stack_b);
-    if (print)
-    write(1, "sb\n", 3);
+	ft_swap(stack_b);
+	if (print)
+		write(1, "sb\n", 3);
 }
 
-void ft_swap_ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
+void	ft_swap_ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-    ft_swap(stack_a);
-    ft_swap(stack_b);
-    if (print)
-    write(1, "ss\n", 3);
+	ft_swap(stack_a);
+	ft_swap(stack_b);
+	if (print)
+		write(1, "ss\n", 3);
 }

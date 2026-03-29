@@ -49,44 +49,43 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-t_stack_node *min_node(t_stack_node *stack)
+t_stack_node	*min_node(t_stack_node *stack)
 {
-    t_stack_node *min_node ;
+	t_stack_node	*min_node;
 
-    if (!stack)
-        return NULL;
-    min_node = stack ;
-    while (stack)
-    {
-        if (min_node->nbr > stack->nbr)
-            min_node = stack ;
-        stack = stack->next ;
-    }
-    return min_node ;
+	if (!stack)
+		return (NULL);
+	min_node = stack;
+	while (stack)
+	{
+		if (min_node->nbr > stack->nbr)
+			min_node = stack;
+		stack = stack->next;
+	}
+	return (min_node);
 }
 
-void assign_index(t_stack_node *stack)
+void	assign_index(t_stack_node *stack)
 {
-    t_stack_node *tmp;
-    t_stack_node *min;
-    int idx;
-    int len;
+	t_stack_node	*tmp;
+	t_stack_node	*min;
+	int				idx;
+	int				len;
 
 	idx = 0;
 	len = stack_len(stack);
 	while (idx < len)
 	{
 		min = NULL;
-		tmp = stack ;
+		tmp = stack;
 		while (tmp)
 		{
 			if (tmp->index == -1 && (!min || tmp->nbr < min->nbr))
-    			min = tmp;
+				min = tmp;
 			tmp = tmp->next;
 		}
 		if (!min)
 			break ;
-		min->index = idx++ ;
+		min->index = idx++;
 	}
-	
 }

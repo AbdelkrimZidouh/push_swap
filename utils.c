@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azidouh <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: azidouh <azidouh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 19:42:54 by azidouh           #+#    #+#             */
-/*   Updated: 2026/02/11 19:42:56 by azidouh          ###   ########.fr       */
+/*   Updated: 2026/03/29 14:13:12 by azidouh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,39 @@ int	ft_isdigit(int c)
 long	ft_atol(const char *nptr)
 {
 	size_t	i;
-	int		signe;
+	int		sign;
 	long	nbr;
 
 	i = 0;
-	signe = 1;
+	sign = 1;
 	nbr = 0;
 	while (nptr[i] && ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32))
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			signe = -1;
-		i++;
-	}
+		if (nptr[i++] == '-')
+			sign = -1;
 	while (nptr[i] && (nptr[i] >= '0' && nptr[i] <= '9'))
 	{
 		if (nbr > (LONG_MAX - (nptr[i] - '0')) / 10)
-			return (signe == 1 ? LONG_MAX : LONG_MIN);
-		nbr = nbr * 10 + (nptr[i] - '0');
-		i++;
+		{
+			if (sign == 1)
+				return (LONG_MAX);
+			return (LONG_MIN);
+		}
+		nbr = nbr * 10 + (nptr[i++] - '0');
 	}
-	return (nbr * signe);
+	return (nbr * sign);
 }
 
-int stack_len(t_stack_node *stack)
+int	stack_len(t_stack_node *stack)
 {
-    int count;
+	int	count;
 
-    count = 0;
-    while (stack)
-    {
-        count++;
-        stack = stack->next;
-    }
-    return (count);
+	count = 0;
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
 }

@@ -12,12 +12,11 @@
 
 #include "push_swap.h"
 
-
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	int len ;
+	int				len;
 
 	a = NULL;
 	b = NULL;
@@ -25,7 +24,7 @@ int	main(int argc, char **argv)
 		return (1);
 	init_stack_a(&a, argv + 1);
 	assign_index(a);
-	len = stack_len(a) ;
+	len = stack_len(a);
 	if (!stack_sorted(a))
 	{
 		if (len <= 5)
@@ -36,4 +35,3 @@ int	main(int argc, char **argv)
 	free_stack(&a);
 	return (0);
 }
-
