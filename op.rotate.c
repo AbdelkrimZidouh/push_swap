@@ -22,11 +22,9 @@ static void ft_rotate(t_stack_node **stack)
 
     first = *stack;
     *stack = first->next;
-    (*stack)->prev = NULL;
 
     last = find_last_node(*stack);
     first->next = NULL;
-    first->prev = last;
     last->next = first;
 }
 

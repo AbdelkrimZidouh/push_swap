@@ -13,7 +13,6 @@ typedef struct stack_node
 
     struct stack_node *target_node ;
     struct stack_node *next ;
-    struct stack_node *prev ;
 } t_stack_node ;
 
 char	**ft_split(const char *s, char c) ;

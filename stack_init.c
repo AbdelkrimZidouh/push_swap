@@ -34,12 +34,11 @@ static void	free_error(t_stack_node **stack)
 	exit(1);
 }
 
-static void	append_node(t_stack_node **a, int nbr)
+static void	append_node(t_stack_node **a, t_stack_node **tail, int nbr)
 {
 	t_stack_node	*new_node;
-	t_stack_node	*last_node;
 
-	if (!a)
+	if (!a || !tail)
 		return ;
 	new_node = malloc(sizeof(t_stack_node));
 	if (!new_node)
@@ -50,12 +49,11 @@ static void	append_node(t_stack_node **a, int nbr)
 	if (!(*a))
 	{
 		*a = new_node;
-		new_node->prev = NULL;
+		*tail = new_node;
 		return ;
 	}
-	last_node = find_last_node(*a);
-	last_node->next = new_node;
-	new_node->prev = last_node;
+	(*tail)->next = new_node;
+	*tail = new_node;
 }
 
 static bool	syntax_error(char *str)
@@ -107,8 +105,10 @@ void	init_stack_a(t_stack_node **a, char **argv)
     int     j;
 	long	n;
     char    **args_splited;
+	t_stack_node	*tail;
 
     i = 0;
+	tail = NULL;
     while (argv[i])
     {
         args_splited = ft_split(argv[i], ' '); 
@@ -136,7 +136,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 				free_splited_args(args_splited);
 				free_error(a);
 			}
-			append_node(a, (int)n);
+			append_node(a, &tail, (int)n);
 			j++;
         }
         free_splited_args(args_splited);

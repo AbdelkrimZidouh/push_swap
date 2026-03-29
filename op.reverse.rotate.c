@@ -16,16 +16,17 @@
 static void ft_reverse_rotate(t_stack_node **stack)
 {
     t_stack_node *last ;
+    t_stack_node *before_last ;
 
     if (!stack || !(*stack) || !(*stack)->next)
         return ;
 
-    last = find_last_node(*stack) ;
-    last->prev->next = NULL ;
+    before_last = *stack ;
+    while (before_last->next && before_last->next->next)
+        before_last = before_last->next ;
+    last = before_last->next ;
+    before_last->next = NULL ;
     last->next = *stack ;
-    (*stack)->prev = last ;
-
-    last->prev = NULL ;
     *stack = last ;
 }
 

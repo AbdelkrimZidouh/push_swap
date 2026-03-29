@@ -24,12 +24,7 @@ static void ft_swap(t_stack_node **stack)
     second = first->next;
 
     first->next = second->next;
-    if (second->next)
-        second->next->prev = first;
-
     second->next = first;
-    second->prev = NULL;
-    first->prev = second;
 
     *stack = second;
 }

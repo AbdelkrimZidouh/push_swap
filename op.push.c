@@ -22,15 +22,8 @@ static void ft_push(t_stack_node **stack1, t_stack_node **stack2)
 
     node = (*stack1) ;
     *stack1 = node->next ;
-
-    if (*stack1)
-        (*stack1)->prev = NULL;
     
     node->next = *stack2 ;
-    if (*stack2)
-        (*stack2)->prev = node ;
-
-    node->prev = NULL ;
     *stack2 = node ;
 }
 
