@@ -98,5 +98,6 @@ The only instructions that can be printed are:
 ### How AI was used (required)
 AI was used for:
 - **Documentation writing**: structuring and drafting this `README.md` according to 42 requirements.
+- **Algorithm understanding**: understanding the chunk algorithm.
 
 
