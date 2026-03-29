@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	free_error(t_stack_node **stack)
+void	free_error(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
 	t_stack_node	*current;
@@ -34,7 +34,7 @@ static void	free_error(t_stack_node **stack)
 	exit(1);
 }
 
-static bool	syntax_error(char *str)
+bool	syntax_error(char *str)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ static bool	syntax_error(char *str)
 	return (false);
 }
 
-static bool	duplicate_error(t_stack_node *stack, int n)
+bool	duplicate_error(t_stack_node *stack, int n)
 {
 	if (!stack)
 		return (false);

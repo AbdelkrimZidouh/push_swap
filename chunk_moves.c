@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	move_to_top_a(t_stack_node **a, int pos)
+void	move_to_top_a(t_stack_node **a, int pos)
 {
 	int	len;
 	int	steps;
@@ -31,7 +31,7 @@ static void	move_to_top_a(t_stack_node **a, int pos)
 	}
 }
 
-static void	move_to_top_b(t_stack_node **b, int pos)
+void	move_to_top_b(t_stack_node **b, int pos)
 {
 	int	len;
 	int	steps;

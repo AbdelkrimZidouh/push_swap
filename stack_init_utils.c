@@ -24,7 +24,7 @@ static void	free_splited_args(char **argv)
 	free(argv);
 }
 
-static void	process_arg(t_stack_node **a, char *arg, t_stack_node **tail)
+void	process_arg(t_stack_node **a, char *arg, t_stack_node **tail)
 {
 	int		j;
 	long	n;
@@ -47,7 +47,7 @@ static void	process_arg(t_stack_node **a, char *arg, t_stack_node **tail)
 	free_splited_args(split);
 }
 
-static void	append_node(t_stack_node **a, t_stack_node **tail, int nbr)
+void	append_node(t_stack_node **a, t_stack_node **tail, int nbr)
 {
 	t_stack_node	*new_node;
 

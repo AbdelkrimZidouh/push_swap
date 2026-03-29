@@ -31,7 +31,7 @@ static int	handle_push(t_stack_node **a, t_stack_node **b,
 	return (1);
 }
 
-static void	push_chunks(t_stack_node **a, t_stack_node **b)
+void	push_chunks(t_stack_node **a, t_stack_node **b)
 {
 	int	pushed;
 	int	chunk_size;
@@ -49,7 +49,7 @@ static void	push_chunks(t_stack_node **a, t_stack_node **b)
 	}
 }
 
-static void	push_back(t_stack_node **a, t_stack_node **b)
+void	push_back(t_stack_node **a, t_stack_node **b)
 {
 	int	pos;
 

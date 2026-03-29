@@ -23,7 +23,6 @@ typedef struct stack_node
 	int					nbr;
 	int					index;
 
-	struct stack_node	*target_node;
 	struct stack_node	*next;
 }						t_stack_node;
 
@@ -37,7 +36,6 @@ t_stack_node			*max_node(t_stack_node *stack);
 void					move_min_to_top(t_stack_node **stack_a);
 void					assign_index(t_stack_node *stack);
 int						stack_len(t_stack_node *stack);
-void					chunk_sort(t_stack_node **a, t_stack_node **b);
 
 int						ft_isdigit(int c);
 long					ft_atol(const char *nptr);
@@ -66,7 +64,18 @@ void					ft_swap_ss(t_stack_node **stack_a,
 
 void					small_sort(t_stack_node **a, t_stack_node **b);
 
-void					free_splited_args(char **argv);
+void					chunk_sort(t_stack_node **a, t_stack_node **b);
+void					push_chunks(t_stack_node **a, t_stack_node **b);
+void					push_back(t_stack_node **a, t_stack_node **b);
+int						get_chunk_size(int size);
+int						find_target_pos(t_stack_node *stack, int max_index);
+int						find_max_pos(t_stack_node *stack);
+void					move_to_top_a(t_stack_node **a, int pos);
+void					move_to_top_b(t_stack_node **b, int pos);
+
+void					free_error(t_stack_node **stack);
+bool					syntax_error(char *str);
+bool					duplicate_error(t_stack_node *stack, int n);
 void					process_arg(t_stack_node **a, char *arg,
 							t_stack_node **tail);
 void					append_node(t_stack_node **a, t_stack_node **tail,

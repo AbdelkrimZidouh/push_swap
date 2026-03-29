@@ -1,8 +1,8 @@
 NAME = push_swap
 
-SRC = push_swap.c stack_init.c stack_utils.c ft_split.c utils.c \
-	  op.push.c op.rotate.c op.reverse.rotate.c op.swap.c \
-	  small_sort.c small_sort_utils.c chanks.c
+SRC = push_swap.c stack_init.c stack_init_utils.c stack_errors.c stack_utils.c \
+	  ft_split.c utils.c op.push.c op.rotate.c op.reverse.rotate.c op.swap.c \
+	  small_sort.c small_sort_utils.c chunk_sort.c chunk_push.c chunk_moves.c chunk_utils.c
  
 SOBJ = $(SRC:%.c=%.o)
 

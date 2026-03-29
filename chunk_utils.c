@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-static int	get_chunk_size(int size)
+int	get_chunk_size(int size)
 {
 	if (size <= 100)
 		return (15);
 	return (30);
 }
 
-static int	find_target_pos(t_stack_node *stack, int max_index)
+int	find_target_pos(t_stack_node *stack, int max_index)
 {
 	int	pos;
 
@@ -34,7 +34,7 @@ static int	find_target_pos(t_stack_node *stack, int max_index)
 	return (-1);
 }
 
-static int	find_max_pos(t_stack_node *stack)
+int	find_max_pos(t_stack_node *stack)
 {
 	int	pos;
 	int	max_pos;
