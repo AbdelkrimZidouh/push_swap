@@ -90,7 +90,6 @@ The only instructions that can be printed are:
 ## Resources
 
 ### Classic references (push_swap / algorithms)
-- 42 subject PDF (included in this repository): `en.subject.pdf`
 - Big-O / complexity refresher: https://www.bigocheatsheet.com/
 - Sorting algorithms overview: https://en.wikipedia.org/wiki/Sorting_algorithm
 - Stack operations / permutations concepts: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
@@ -98,6 +97,6 @@ The only instructions that can be printed are:
 ### How AI was used (required)
 AI was used for:
 - **Documentation writing**: structuring and drafting this `README.md` according to 42 requirements.
-- **Algorithm understanding**: understanding the chunk algorithm.
+- **Algorithm understanding**: understanding the chunks algorithm.
 
 
