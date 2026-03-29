@@ -2,85 +2,102 @@
 
 # push_swap
 
-**push_swap** is a sorting algorithm project from the 42 school curriculum. The goal is to sort a stack of integers using two stacks (`a` and `b`) and a restricted set of operations, with as few moves as possible.
+## Description
+**push_swap** is a 42 School algorithmic project. The goal is to sort a list of integers using **two stacks** (`a` and `b`) and a **limited set of operations**, while producing the **smallest possible number of moves**.
 
-## Table of Contents
+Your program:
+- takes integers as command-line arguments,
+- builds **stack `a`** from them (stack `b` starts empty),
+- prints to **stdout** a sequence of operations (one per line) that sorts `a` in **ascending** order.
 
-- [About the Project](#about-the-project)
-- [Operations](#operations)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Further Reading](#further-reading)
+This project emphasizes:
+- parsing and validating input,
+- choosing an efficient sorting strategy under constraints,
+- optimizing the number of operations.
 
-## About the Project
+---
 
-Given a list of integers as arguments, `push_swap` outputs to stdout the list of instructions needed to sort stack `a` in ascending order using the fewest possible operations.
+## Instructions
 
-Two stacks are available:
-- **Stack a** — initially contains the unsorted input integers.
-- **Stack b** — initially empty; used as temporary storage.
-
-## Operations
-
-| Instruction | Description |
-|-------------|-------------|
-| `sa` | Swap the first 2 elements of stack a |
-| `sb` | Swap the first 2 elements of stack b |
-| `ss` | `sa` and `sb` at the same time |
-| `pa` | Push the top element of stack b onto stack a |
-| `pb` | Push the top element of stack a onto stack b |
-| `ra` | Rotate stack a upward (first element becomes last) |
-| `rb` | Rotate stack b upward (first element becomes last) |
-| `rr` | `ra` and `rb` at the same time |
-| `rra` | Reverse rotate stack a (last element becomes first) |
-| `rrb` | Reverse rotate stack b (last element becomes first) |
-| `rrr` | `rra` and `rrb` at the same time |
-
-## Getting Started
-
-### Prerequisites
-
-- A C compiler (e.g. `gcc` or `clang`)
+### Requirements
+- `gcc` (or `clang`)
 - `make`
 
-### Building
-
+### Compile
 ```bash
-git clone https://github.com/AbdelkrimZidouh/push_swap.git
-cd push_swap
 make
 ```
 
-This produces the `push_swap` executable.
-
-## Usage
-
+Useful Makefile targets:
 ```bash
-./push_swap <integer1> <integer2> ... <integerN>
+make        # build push_swap
+make clean  # remove object files
+make fclean # remove objects + executable
+make re     # full rebuild
 ```
 
-**Example:**
-
+### Run
 ```bash
-./push_swap 3 1 4 1 5 9 2 6
+./push_swap <int1> <int2> ... <intN>
 ```
 
-The program prints the sequence of instructions to sort the stack, one per line.
-
-To count the number of moves:
-
+Example:
 ```bash
-./push_swap 3 1 4 1 5 9 2 6 | wc -l
+./push_swap 3 2 1
 ```
 
-To verify correctness using the provided checker:
-
+### Count the number of moves
 ```bash
-./push_swap 3 1 4 1 5 9 2 6 | ./checker_linux 3 1 4 1 5 9 2 6
+./push_swap 3 2 1 | wc -l
 ```
 
-## Further Reading
+### Check correctness (with 42 checker)
+If you have a compatible checker binary (this repo includes `checker_linux`):
+```bash
+./push_swap 3 2 1 | ./checker_linux 3 2 1
+```
+Expected output: `OK` (or `KO` if not sorted).
 
-- [42 push_swap subject (en.subject.pdf)](en.subject.pdf)
-- [Wikipedia — Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
-- [Turk algorithm explanation](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+---
+
+## Allowed operations
+The only instructions that can be printed are:
+
+| Instruction | Effect |
+|------------|--------|
+| `sa` | swap the first 2 elements of stack `a` |
+| `sb` | swap the first 2 elements of stack `b` |
+| `ss` | `sa` and `sb` at the same time |
+| `pa` | push top of `b` onto `a` |
+| `pb` | push top of `a` onto `b` |
+| `ra` | rotate `a` up (first becomes last) |
+| `rb` | rotate `b` up (first becomes last) |
+| `rr` | `ra` and `rb` at the same time |
+| `rra` | reverse rotate `a` (last becomes first) |
+| `rrb` | reverse rotate `b` (last becomes first) |
+| `rrr` | `rra` and `rrb` at the same time |
+
+---
+
+## Notes / expected behavior
+- Input must be valid integers (within `int` range).
+- Duplicates are not allowed.
+- On invalid input, the program should output `Error` to stderr (depending on your implementation/subject) and exit.
+- If the input is already sorted, the program should ideally print nothing.
+
+---
+
+## Resources
+
+### Classic references (push_swap / algorithms)
+- 42 subject PDF (included in this repository): `en.subject.pdf`
+- Big-O / complexity refresher: https://www.bigocheatsheet.com/
+- Sorting algorithms overview: https://en.wikipedia.org/wiki/Sorting_algorithm
+- Stack operations / permutations concepts: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+
+### How AI was used (required)
+AI (ChatGPT / GitHub Copilot) was used for:
+- **Documentation writing**: structuring and drafting this `README.md` according to 42 requirements.
+- **Wording and formatting**: improving clarity of the project explanation, build/run instructions, and resources section.
+
+AI was **not** used to generate or paste the full project source code as a finished solution; any suggestions were reviewed and adapted to match the project constraints and the 42 subject requirements.
