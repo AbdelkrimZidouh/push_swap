@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by AbdelkrimZidouh*
+*This project has been created as part of the 42 curriculum by azidouh*
 
 # push_swap
 
@@ -82,7 +82,7 @@ The only instructions that can be printed are:
 ## Notes / expected behavior
 - Input must be valid integers (within `int` range).
 - Duplicates are not allowed.
-- On invalid input, the program should output `Error` to stderr (depending on your implementation/subject) and exit.
+- On invalid input, the program should output `Error` to stderr and exit.
 - If the input is already sorted, the program should ideally print nothing.
 
 ---
@@ -96,8 +96,7 @@ The only instructions that can be printed are:
 - Stack operations / permutations concepts: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 
 ### How AI was used (required)
-AI (ChatGPT / GitHub Copilot) was used for:
+AI was used for:
 - **Documentation writing**: structuring and drafting this `README.md` according to 42 requirements.
-- **Wording and formatting**: improving clarity of the project explanation, build/run instructions, and resources section.
 
-AI was **not** used to generate or paste the full project source code as a finished solution; any suggestions were reviewed and adapted to match the project constraints and the 42 subject requirements.
+
