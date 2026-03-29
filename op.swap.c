@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 static void ft_swap(t_stack_node **stack)
 {
@@ -39,14 +38,14 @@ void ft_swap_sa(t_stack_node **stack_a, bool print)
 {
     ft_swap(stack_a);
     if (print)
-        ft_putstr_fd("sa\n", 1);
+    write(1, "sa\n", 3);
 }
 
 void ft_swap_sb(t_stack_node **stack_b, bool print)
 {
     ft_swap(stack_b);
     if (print)
-        ft_putstr_fd("sb\n", 1);
+    write(1, "sb\n", 3);
 }
 
 void ft_swap_ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
@@ -54,5 +53,5 @@ void ft_swap_ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
     ft_swap(stack_a);
     ft_swap(stack_b);
     if (print)
-        ft_putstr_fd("ss\n", 1);
+    write(1, "ss\n", 3);
 }

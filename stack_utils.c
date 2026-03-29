@@ -69,18 +69,23 @@ void assign_index(t_stack_node *stack)
 {
     t_stack_node *tmp;
     t_stack_node *min;
-    int idx = 0;
+    int idx;
+    int len;
 
-    while (idx < stack_len(stack))
+	idx = 0;
+	len = stack_len(stack);
+	while (idx < len)
 	{
-		min = stack ;
+		min = NULL;
 		tmp = stack ;
 		while (tmp)
 		{
-			if (tmp->index == -1 && tmp->nbr < min->nbr)
+			if (tmp->index == -1 && (!min || tmp->nbr < min->nbr))
     			min = tmp;
 			tmp = tmp->next;
 		}
+		if (!min)
+			break ;
 		min->index = idx++ ;
 	}
 	

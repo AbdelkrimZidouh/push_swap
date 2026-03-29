@@ -12,7 +12,6 @@
 
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 static void ft_reverse_rotate(t_stack_node **stack)
 {
@@ -21,7 +20,7 @@ static void ft_reverse_rotate(t_stack_node **stack)
     if (!stack || !(*stack) || !(*stack)->next)
         return ;
 
-    last = ft_lstlast(*stack) ;
+    last = find_last_node(*stack) ;
     last->prev->next = NULL ;
     last->next = *stack ;
     (*stack)->prev = last ;
@@ -34,14 +33,14 @@ void ft_reverse_rotate_sa(t_stack_node **stack_a, bool print)
 {
     ft_reverse_rotate(stack_a) ;
     if (print)
-        ft_putstr_fd("rra\n", 1) ;
+    write(1, "rra\n", 4) ;
 }
 
 void ft_reverse_rotate_sb(t_stack_node **stack_b, bool print)
 {
     ft_reverse_rotate(stack_b) ;
     if (print)
-        ft_putstr_fd("rrb\n", 1) ;
+    write(1, "rrb\n", 4) ;
 }
 
 void ft_reverse_rotate_ss(t_stack_node **stack_a,t_stack_node **stack_b, bool print)
@@ -49,5 +48,5 @@ void ft_reverse_rotate_ss(t_stack_node **stack_a,t_stack_node **stack_b, bool pr
     ft_reverse_rotate(stack_a) ;
     ft_reverse_rotate(stack_b) ;
     if (print)
-        ft_putstr_fd("rrr\n", 1) ;
+    write(1, "rrr\n", 4) ;
 }

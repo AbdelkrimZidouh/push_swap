@@ -11,20 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-static void	print_stack(t_stack_node *stack)
-{
-	printf("--- STACK A ---\n");
-	if (!stack)
-		printf("(empty)\n");
-	while (stack)
-	{
-		printf("%d\n", stack->nbr);
-		stack = stack->next;
-	}
-	printf("---------------\n");
-}
 
 
 int	main(int argc, char **argv)
@@ -47,7 +33,6 @@ int	main(int argc, char **argv)
 		else
 			chunk_sort(&a, &b);
 	}
-	print_stack(a);
 	free_stack(&a);
 	return (0);
 }

@@ -21,6 +21,12 @@ void init_stack_a(t_stack_node **a, char **argv) ;
 bool    stack_sorted(t_stack_node *stack) ;
 t_stack_node *find_last_node(t_stack_node *stack) ;
 void free_stack(t_stack_node **stack) ;
+t_stack_node *min_node(t_stack_node *stack) ;
+t_stack_node *max_node(t_stack_node *stack) ;
+void move_min_to_top(t_stack_node **stack_a) ;
+void assign_index(t_stack_node *stack) ;
+int stack_len(t_stack_node *stack) ;
+void chunk_sort(t_stack_node **a, t_stack_node **b) ;
 
 int	ft_isdigit(int c) ;
 long	ft_atol(const char *nptr) ;

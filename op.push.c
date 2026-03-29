@@ -12,7 +12,6 @@
 
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 static void ft_push(t_stack_node **stack1, t_stack_node **stack2)
 {   
@@ -39,12 +38,12 @@ void ft_push_to_sa(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
     ft_push(stack_b, stack_a) ;
     if (print)
-        ft_putstr_fd("pa\n", 1) ;
+    write(1, "pa\n", 3) ;
 }
 
 void ft_push_to_sb(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
     ft_push(stack_a, stack_b) ;
     if (print)
-        ft_putstr_fd("pb\n", 1) ;
+    write(1, "pb\n", 3) ;
 }

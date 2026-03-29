@@ -45,17 +45,17 @@ void move_min_to_top(t_stack_node **stack_a)
     int pos ;
     int len ;
 
-    pos = find_min_pos(stack_a) ;
-    len = stack_len(stack_a) ;
+    pos = find_min_pos(*stack_a) ;
+    len = stack_len(*stack_a) ;
     if (pos <= len / 2)
     {
         while (pos--)
-            ft_rotate_sa(stack_a, false) ;
+            ft_rotate_sa(stack_a, true) ;
     }
     else 
     {
         pos = len - pos ;
         while (pos--)
-            ft_reverse_rotate_sa(stack_a, false) ;
+            ft_reverse_rotate_sa(stack_a, true) ;
     }
 }
